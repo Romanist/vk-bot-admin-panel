@@ -2,12 +2,12 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * Userec Model
+ * Admin Model
  * ==========
  */
-var Userec = new keystone.List('Userec');
+var Admin = new keystone.List('Admin');
 
-Userec.add({
+Admin.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, unique: true, index: true },
 	password: { type: Types.Password, initial: true, required: true },
@@ -16,7 +16,7 @@ Userec.add({
 });
 
 // Provide access to Keystone
-Userec.schema.virtual('canAccessKeystone').get(function () {
+Admin.schema.virtual('canAccessKeystone').get(function () {
 	return this.isAdmin;
 });
 
@@ -24,5 +24,5 @@ Userec.schema.virtual('canAccessKeystone').get(function () {
 /**
  * Registration
  */
-Userec.defaultColumns = 'name, email, isAdmin';
-Userec.register();
+Admin.defaultColumns = 'name, email, isAdmin';
+Admin.register();

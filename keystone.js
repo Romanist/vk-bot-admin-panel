@@ -24,7 +24,7 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'Userec',
+	'user model': 'Admin',
 	'mongo': 'mongodb://someuser:abcd1234@ds127961.mlab.com:27961/filmsforvoka'
 });
 
@@ -47,7 +47,7 @@ keystone.set('routes', require('./routes'));
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-	userecs: 'userecs',
+	admins: 'admins',
 	users: 'users',
 	stats: 'stats',
 });
